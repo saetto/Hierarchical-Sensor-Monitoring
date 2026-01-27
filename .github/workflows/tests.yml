@@ -63,7 +63,19 @@ jobs:
         with:
           path: ${{ env.OUTPUT_FOLDER }}
           name: ${{ steps.build-artifact-name.outputs.name }}
+          
+      - name: Install Playwright dependencies
+        working-directory: src/tests/HSMTests.Playwright
+        run: |
+          npm ci
+          npx playwright install --with-deps
 
+      - name: Run Playwright tests
+        working-directory: src/tests/HSMTests.Playwright
+        run: npx playwright test
+        env:
+          PLAYWRIGHT_TEST_BASE_URL: https://localhost:44333
+          
   create-tag:
     if: ${{ github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
