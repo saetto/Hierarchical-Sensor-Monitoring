@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { testConfig } from '../../config.ts';
-import { login } from '../../login.ts';
+import { testConfig } from '../config.ts';
+import { login } from '../login.ts';
 
 test.use({
   ignoreHTTPSErrors: true,
