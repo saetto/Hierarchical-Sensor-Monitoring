@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { testConfig } from '../../config.ts';
-import { login } from '../../login.ts';
+import { testConfig } from '../config.ts';
+import { login } from '../login.ts';
 
 // Настройка для этого конкретного теста.
 // В TypeScript синтаксис остается тем же, что и в JavaScript.
